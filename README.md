@@ -9,7 +9,7 @@
 - .NET 7
 
 (At the moment, this is a tiny library that exposes normal things but more are to come.)
-The library interacts with macOS latest SDK and uses only the following headers:
+The library uses macOS latest SDK and uses only the following headers:
 ##### Objective-C:
 ```
 #include <Foundation/Foundation.h>

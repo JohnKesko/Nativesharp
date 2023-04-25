@@ -10,7 +10,7 @@ Tested with:
 - C# 11
 - .NET 7
 
-(At the moment, this is a tiny library that exposes normal things but more are to come.)
+(At the moment, this is a tiny shared library (.dynlib) that exposes normal things we want to use - but more are to come.)
 The library uses macOS latest SDK and uses only the following headers:
 ##### Objective-C:
 ```
@@ -18,15 +18,15 @@ The library uses macOS latest SDK and uses only the following headers:
 #include <AppKit/AppKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 ```
-### The library is under construction, so use at your own risk :)
+#### The library is under construction, so use at your own risk :)
 -------------
-#### Summary:
+### Summary:
 Nativesharp is a shared library (.dynlib) containg C# bindings to interact with any external window that is currently running on a macOS computer.
 For example, the issue I had was to interact with an external window independently which C# framework I had created my GUI in, plus I didn't want to use Xamarin or any NuGet package.
-This library is therefore intented to be tiny and lightweight and let's your interact with any external window the on a mac computer.
+This library is therefore intented to be tiny and lightweight and let's your interact with any external window on a mac.
 
 -------------
-#### Description
+### Description
 A macOS window can be described as follows using the .dylib:
 ```
 [StructLayout(LayoutKind.Sequential)]

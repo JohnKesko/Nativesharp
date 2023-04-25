@@ -4,6 +4,8 @@
 ##### Latest update: 2023-04-25
 ###
 - Written in Objective-C
+
+Tested with:
 - macOS: Ventura 13.0 / M1 Pro
 - C# 11
 - .NET 7

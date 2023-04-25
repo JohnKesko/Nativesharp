@@ -143,7 +143,7 @@ BitmapData: Raw pixels for each window. In C#, we can describe this as an byte[]
 ```
 public static class ExposedMethods
 {
-    private const string NativeLibrary = "/Path/To/NativeObjCtoCsharp.dylib";
+    private const string NativeLibrary = "/Path/To/Nativesharp.dylib";
     
     [DllImport(NativeLibrary)]
     public static extern IntPtr get_single_active_window_title();

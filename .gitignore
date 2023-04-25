@@ -2,3 +2,4 @@ NativeObjCtoCsharp
 NativeObjCtoCsharp.xcodeproj
 Compile.txt
 TestingFindMacOSWindow
+.DS_Store

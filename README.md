@@ -5,7 +5,7 @@
 ###
 - Written in Objective-C
 
-(At the moment, this is a tiny shared library (.dynlib) that exposes normal things we want to use - but more are to come.
+(At the moment, this is a tiny shared library (.dylib) that exposes normal things we want to use - but more are to come.
 The library uses macOS latest SDK and uses only the following headers:
 
 ##### Objective-C:
@@ -25,7 +25,7 @@ void free_memory(void* memoryPtr, size_t windowsCount);
 #### The library is under construction, so use at your own risk :)
 -------------
 ### Summary:
-Nativesharp is a shared library (.dynlib) containing methods to interact with any external window that is currently running on a macOS computer.
+Nativesharp is a shared library (.dylib) containing methods to interact with any external window that is currently running on a macOS computer.
 For example, the issue I had was to interact with an external window independently which framework I had created my GUI in. 
 I'm using wxWidgets or C# and Avalonia, so I had to have an independent library that I could use for any lanugage basically.
 The library is therefore intented to be tiny so you can choose whatever language you want.

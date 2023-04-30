@@ -7,16 +7,18 @@
 - Written in Objective-C
 
 
-(At the moment, this is a tiny shared library (.dynlib) that exposes normal things we want to use - but more are to come.
+At the moment, this is a tiny shared library (.dylib) that exposes normal things we want to use - but more are to come.
 The library uses macOS latest SDK and uses only the following headers:
 
 #### The library is under construction, so use at your own risk :)
 -------------
 ### Summary:
 Nativesharp is a shared library (.dylib) containing methods to interact with any external window that is currently running on a macOS computer.
+
 For example, the issue I had was to interact with an external window no matter which framework I had created my UI in. 
 I'm using C# and Avalonia or wxWidgets, so I had to have an independent library that I could use for any lanugage basically.
 The library is intented to be tiny for small things so you can choose whatever language you want.
+
 
 ### A window in Nativesharp can be defined:
 
@@ -146,7 +148,7 @@ const nativeLib = ffi.Library('path/to/your/library.dylib', {
 ```
 public static class ExposedMethods
 {
-    private const string NativeLibrary = "/Path/To/NativeObjCtoCsharp.dylib";
+    private const string NativeLibrary = "/Path/To/Nativesharp.dylib";
     
     [DllImport(NativeLibrary)]
     public static extern IntPtr get_single_active_window_title();

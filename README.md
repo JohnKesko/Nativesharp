@@ -1,40 +1,33 @@
 # Nativesharp
---------
-### A tiny shared library for macOS
+
+### A tiny shared library for macOS to interact with external windows at runtime
 ##### Latest update: 2023-04-25
-###
+
+#
 - Written in Objective-C
+
 
 (At the moment, this is a tiny shared library (.dynlib) that exposes normal things we want to use - but more are to come.
 The library uses macOS latest SDK and uses only the following headers:
 
-##### Objective-C:
-```
-#include <Foundation/Foundation.h>
-#include <AppKit/AppKit.h>
-#import <CoreGraphics/CoreGraphics.h>
-```
-And the methods we can use:
-```
-const char* get_single_active_window_title(void);
-const char* get_all_active_windows_titles(void);
-size_t get_all_active_windows_info(WindowInfo** windowsInfoArray);
-void free_memory(void* memoryPtr, size_t windowsCount);
-```
-
 #### The library is under construction, so use at your own risk :)
 -------------
 ### Summary:
-Nativesharp is a shared library (.dynlib) containing methods to interact with any external window that is currently running on a macOS computer.
-For example, the issue I had was to interact with an external window independently which framework I had created my GUI in. 
-I'm using wxWidgets or C# and Avalonia, so I had to have an independent library that I could use for any lanugage basically.
-The library is therefore intented to be tiny so you can choose whatever language you want.
+Nativesharp is a shared library (.dylib) containing methods to interact with any external window that is currently running on a macOS computer.
+For example, the issue I had was to interact with an external window no matter which framework I had created my UI in. 
+I'm using C# and Avalonia or wxWidgets, so I had to have an independent library that I could use for any lanugage basically.
+The library is intented to be tiny for small things so you can choose whatever language you want.
 
--------------
-### Description
-A macOS window can be described as follows using the .dylib:
+### A window in Nativesharp can be defined:
 
-Native Objective-C:
+#### Title: 
+A string that contains the window title. This could be an active tab in your browser as well (example below in C#).
+#### Width + Height
+Width + Height: The width and height of each window.
+#### BitmapData
+BitmapData: Raw pixels for each window. In C#, we can describe it as an byte[] of raw pixels.
+#
+### Objective-C:
 ```
 typedef struct {
     char* title;
@@ -43,6 +36,22 @@ typedef struct {
     uint8_t* bitmapData;
 } WindowInfo;
 ```
+
+Headers used:
+##### Objective-C:
+```
+#include <Foundation/Foundation.h>
+#include <AppKit/AppKit.h>
+#import <CoreGraphics/CoreGraphics.h>
+```
+And exposed methods to use:
+```
+const char* get_single_active_window_title(void);
+const char* get_all_active_windows_titles(void);
+size_t get_all_active_windows_info(WindowInfo** windowsInfoArray);
+void free_memory(void* memoryPtr, size_t windowsCount);
+```
+#
 #### To use it in various languages:
 
 ##### In C#:
@@ -127,13 +136,7 @@ const nativeLib = ffi.Library('path/to/your/library.dylib', {
   'get_all_active_windows_info': [ref.types.size_t, [ref.refType(ref.refType(WindowInfo))]],
 });
 ```
--------------
-#### Title: 
-A string that contains the window title. This could be an active tab in your browser as well (example below in C#).
-#### Width + Height
-Width + Height: The width and height of each window.
-#### BitmapData
-BitmapData: Raw pixels for each window. In C#, we can describe this as an byte[] of raw pixels.
+
 
 -------------
 ### C# Example:

@@ -161,11 +161,25 @@ public static class ExposedMethods
     
     [DllImport(NativeLibrary)]
     public static extern void free_memory(IntPtr memoryPtr, ulong windowsCount);
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct WindowInfo
+    {
+        public IntPtr Title;
+        public int Width;
+        public int Height;
+        public IntPtr BitmapData;
+    }
 }
 ```
 
 3. Then in another class. We can do an implementation and check if a browser has an active tab that contains "YouTube":
 ```
+using System.Runtime.InteropServices;
+using TestingFindMacOSWindow.Bindings;
+
+namespace TestingFindMacOSWindow.Examples;
+
 public class MultiWindowInfo
 {
     public MultiWindowInfo()
@@ -175,15 +189,15 @@ public class MultiWindowInfo
 
         for (ulong i = 0; i < windowsCount; ++i)
         {
-            IntPtr currentWindowInfoPtr = IntPtr.Add(windowInfoArrayPtr, (int)(i * (ulong)Marshal.SizeOf(typeof(WindowInfo))));
+            IntPtr currentWindowInfoPtr = IntPtr.Add(windowInfoArrayPtr, (int)(i * (ulong)Marshal.SizeOf(typeof(ExposedMethods.WindowInfo))));
             
-            WindowInfo window = Marshal.PtrToStructure<WindowInfo>(currentWindowInfoPtr);
+            ExposedMethods.WindowInfo window = Marshal.PtrToStructure<ExposedMethods.WindowInfo>(currentWindowInfoPtr);
             string windowTitle = Marshal.PtrToStringUTF8(window.Title);
             
             // Change to something else to test.
             if (windowTitle.Contains("YouTube"))
             {
-                // Assuming RGBA format
+                // Assuming RGBA format and initialize the array to the size of the window width and height and we add 4 bytes for RGBA channels.
                 byte[] rawPixels = new byte[window.Width * window.Height * 4];
                 Marshal.Copy(window.BitmapData, rawPixels, 0, rawPixels.Length);
 

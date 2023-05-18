@@ -8,7 +8,6 @@
 
 
 At the moment, this is a tiny shared library (.dylib) that exposes normal things we want to use - but more are to come.
-The library uses macOS latest SDK and uses only the following headers:
 
 #### The library is under construction, so use at your own risk :)
 -------------

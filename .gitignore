@@ -1,2 +1,3 @@
 # Root
 .DS_Store
+NativeObjToCSharp/Obj/*.o

@@ -1,7 +1,7 @@
 # Nativesharp
 
 ### A tiny shared library for macOS to interact with external windows at runtime
-##### Latest update: 2023-04-25
+##### Latest update: 2023-11-26
 
 #
 - Written in Objective-C

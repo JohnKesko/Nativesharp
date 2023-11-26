@@ -11,7 +11,7 @@
 
 -------------
 ### Summary:
-Nativesharp is a shared library (.dylib) contathat exposes methods you can interact with. 
+Nativesharp is a shared library (.dylib) that exposes methods you can interact with.
 The main purpose was to interact with any external window that is currently running on a macOS computer.
 
 For example, the issue I had was to interact with an external window, no matter how many monitors I used and no matter which framework I had created my UI in.

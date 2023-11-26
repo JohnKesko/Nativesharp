@@ -1,14 +1,7 @@
 # Nativesharp
 
-### A tiny shared library for macOS to interact with external windows at runtime
+### Tiny shared library for macOS to interact with external windows at runtime
 ##### Latest update: 2023-11-26
-
-#
-- Written in Objective-C
-
-
-At the moment, this is a tiny shared library (.dylib) that exposes normal things we like to do.
-The library uses macOS latest SDK and uses only the following headers:
 
 #### The library is under construction, so use at your own risk!
 

@@ -1,0 +1,6 @@
+# Compile Objective-C:
+clang -fobjc-arc -dynamiclib -framework AppKit -framework Foundation -framework CoreGraphics -o NativeObjCtoCSharp.dylib NativeObjCtoCSharp.m
+
+-----------------
+# Compile Objective-C++:
+clang -fobjc-arc -dynamiclib -framework AppKit -framework Foundation -framework CoreGraphics -lstdc++ -o NativeObjCtoCSharp.dylib NativeObjCtoCSharp.mm

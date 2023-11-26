@@ -12,12 +12,13 @@
 -------------
 ### Summary:
 Nativesharp is a shared library (.dylib) that exposes methods you can interact with.
+
 The main purpose was to interact with any external window that is currently running on a macOS computer.
+You can get a single window or tab but also interact with the mouse. So if you draw coordinates on the screen and combine it with "get_single_active_window_title" - you'll get the raw pixels (byte[]) back.
 
-For example, the issue I had was to interact with an external window, no matter how many monitors I used and no matter which framework I had created my UI in.
+My issue was to interact with an external window, no matter how many monitors I used and no matter which framework I had created my UI in.
 
-I'm using Avalonia for the most part, so I had to have an independent library that I could use for any lanugage basically.
-The library is intented to be tiny for small things so you can choose whatever language you want.
+I'm using Avalonia for the most part, so I had to have an independent library that was language agnostic.
 
 ### A window in Nativesharp can be defined:
 
@@ -43,6 +44,8 @@ const char* get_single_active_window_title(void);
 const char* get_all_active_windows_titles(void);
 size_t get_all_active_windows_info(WindowInfo** windowsInfoArray);
 void free_memory(void* memoryPtr, size_t windowsCount);
+uint8_t* capture_area_with_mouse(int x, int y, int width, int height);
+void update_mouse_coordinates(int x1, int y1, int x2, int y2);
 ```
 
 ##### Use it in C#:
